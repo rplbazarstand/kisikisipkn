@@ -1,0 +1,1515 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PPKn XI - Ruang Belajar</title>
+
+<style>
+:root {
+  --navy:#102a43;
+  --blue:#176b87;
+  --teal:#20a39e;
+  --gold:#f4b942;
+  --cream:#f7f5ef;
+  --ink:#193247;
+  --muted:#647789;
+  --white:#fff;
+  --line:#e3eaf0;
+}
+
+* {
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+body {
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font-family:Arial,sans-serif;
+  line-height:1.7;
+}
+
+header {
+  background:var(--navy);
+  color:white;
+  padding:16px 6%;
+  position:sticky;
+  top:0;
+  z-index:100;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+header h2 {
+  margin:0;
+  font-size:20px;
+}
+
+header span {
+  color:var(--gold);
+}
+
+.hero {
+  background:linear-gradient(120deg,#102a43,#176b87,#20a39e);
+  color:white;
+  padding:65px 7%;
+}
+
+.hero h1 {
+  font-size:clamp(30px,5vw,55px);
+  line-height:1.2;
+  max-width:800px;
+}
+
+.hero p {
+  max-width:700px;
+  color:#e0edf3;
+}
+
+.btn {
+  border:none;
+  border-radius:10px;
+  padding:12px 20px;
+  cursor:pointer;
+  font-weight:bold;
+  margin:5px;
+}
+
+.btn-primary {
+  background:var(--gold);
+  color:var(--navy);
+}
+
+.btn-secondary {
+  background:var(--teal);
+  color:white;
+}
+
+.container {
+  max-width:1150px;
+  margin:auto;
+  padding:25px 18px;
+}
+
+.search {
+  width:100%;
+  padding:14px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  margin-bottom:20px;
+  font-size:16px;
+}
+
+.card {
+  background:white;
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:22px;
+  margin-bottom:20px;
+  box-shadow:0 8px 25px #102a4310;
+}
+
+.card h2 {
+  color:var(--navy);
+  margin-top:0;
+}
+
+.card h3 {
+  color:var(--blue);
+}
+
+.badge {
+  display:inline-block;
+  background:#e8f5f3;
+  color:#116c70;
+  padding:5px 12px;
+  border-radius:30px;
+  font-size:13px;
+  margin:3px;
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:14px;
+}
+
+.mini {
+  background:#f5f9fa;
+  padding:16px;
+  border-radius:12px;
+  border:1px solid var(--line);
+}
+
+table {
+  width:100%;
+  border-collapse:collapse;
+  margin:15px 0;
+  min-width:450px;
+}
+
+th,td {
+  border:1px solid var(--line);
+  padding:11px;
+  text-align:left;
+  vertical-align:top;
+}
+
+th {
+  background:var(--navy);
+  color:white;
+}
+
+.table-wrap {
+  overflow-x:auto;
+}
+
+.note {
+  background:#fff8e8;
+  border-left:5px solid var(--gold);
+  padding:14px;
+  border-radius:8px;
+  margin:15px 0;
+}
+
+.timeline {
+  border-left:3px solid var(--teal);
+  padding-left:20px;
+  margin-left:8px;
+}
+
+.timeline div {
+  margin-bottom:20px;
+}
+
+.timeline strong {
+  color:var(--blue);
+}
+
+.nav {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:20px;
+}
+
+.nav a {
+  text-decoration:none;
+  background:white;
+  color:var(--navy);
+  padding:9px 13px;
+  border-radius:9px;
+  border:1px solid var(--line);
+  font-size:14px;
+}
+
+.nav a:hover {
+  background:var(--teal);
+  color:white;
+}
+
+.quiz {
+  background:linear-gradient(135deg,var(--navy),var(--blue));
+  color:white;
+  padding:25px;
+  border-radius:18px;
+}
+
+.question {
+  background:white;
+  color:var(--ink);
+  padding:18px;
+  margin:15px 0;
+  border-radius:12px;
+}
+
+.question label {
+  display:block;
+  padding:9px;
+  border:1px solid var(--line);
+  margin:7px 0;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.question label:hover {
+  background:#eaf5f5;
+}
+
+.question input {
+  accent-color:var(--teal);
+}
+
+.result {
+  background:white;
+  color:var(--navy);
+  padding:20px;
+  border-radius:12px;
+  margin-top:15px;
+  display:none;
+}
+
+footer {
+  background:var(--navy);
+  color:white;
+  text-align:center;
+  padding:25px;
+  margin-top:35px;
+}
+
+@media(max-width:600px) {
+  .hero {
+    padding:40px 6%;
+  }
+
+  .card {
+    padding:17px;
+  }
+
+  header h2 {
+    font-size:16px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h2>✦ RUANG <span>PPKn XI</span></h2>
+  <small>Belajar • Pahami • Berlatih</small>
+</header>
+
+<section class="hero">
+  <h1>PANCASILA, IDEOLOGI & DEMOKRASI INDONESIA</h1>
+  <p>
+    Website pembelajaran Pendidikan Pancasila dan
+    Kewarganegaraan kelas XI. Pelajari seluruh materi,
+    pahami sejarah, dan uji kemampuanmu melalui latihan soal.
+  </p>
+
+  <button class="btn btn-primary"
+  onclick="document.getElementById('materi').scrollIntoView()">
+    🚀 Mulai Belajar
+  </button>
+
+  <button class="btn btn-secondary"
+  onclick="window.print()">
+    🖨 Cetak Materi
+  </button>
+</section>
+
+<div class="container">
+
+<div class="card">
+  <h2>👋 Selamat Datang!</h2>
+  <p>
+    Website ini mencakup 15 kisi-kisi ujian PPKn kelas XI.
+    Gunakan menu navigasi untuk mempelajari setiap materi.
+  </p>
+  <span class="badge">15 Kisi-kisi</span>
+  <span class="badge">Materi Lengkap</span>
+  <span class="badge">20 Soal Latihan</span>
+  <span class="badge">Pembahasan Otomatis</span>
+</div>
+
+<input class="search" id="search"
+placeholder="🔍 Cari materi..."
+oninput="cariMateri()">
+
+<div class="nav">
+  <a href="#ideologi">Ideologi</a>
+  <a href="#pancasila">Pancasila</a>
+  <a href="#demokrasi">Demokrasi</a>
+  <a href="#dekrit">Dekrit 1959</a>
+  <a href="#amandemen">Amandemen</a>
+  <a href="#perbandingan">Perbandingan</a>
+  <a href="#kmb">KMB</a>
+  <a href="#perilaku">Perilaku Demokrasi</a>
+  <a href="#latihan">Latihan Soal</a>
+</div>
+
+<main id="materi">
+
+<!-- BAB 1 -->
+
+<section class="card materi" id="ideologi">
+<h2>💡 1. MAKNA DAN HAKIKAT IDEOLOGI</h2>
+
+<h3>Pengertian Ideologi</h3>
+<p>
+Ideologi berasal dari bahasa Yunani, yaitu idea yang berarti
+gagasan atau cita-cita dan logos yang berarti ilmu atau
+pengetahuan.
+</p>
+
+<p>
+Ideologi adalah kumpulan gagasan, nilai, keyakinan,
+dan cita-cita yang dijadikan pedoman dalam kehidupan
+bermasyarakat, berbangsa, dan bernegara.
+</p>
+
+<h3>Hakikat Ideologi</h3>
+<ul>
+<li>Sebagai sistem pemikiran.</li>
+<li>Sebagai pedoman hidup.</li>
+<li>Sebagai cita-cita bersama.</li>
+<li>Sebagai identitas bangsa.</li>
+<li>Sebagai alat pemersatu masyarakat.</li>
+</ul>
+
+<h3>Ideologi Terbuka</h3>
+<p>
+Ideologi terbuka merupakan ideologi yang nilai dasarnya
+tetap, tetapi penerapannya dapat berkembang mengikuti
+perkembangan zaman.
+</p>
+
+<ul>
+<li>Bersumber dari nilai masyarakat.</li>
+<li>Tidak dipaksakan penguasa.</li>
+<li>Menghargai perbedaan pendapat.</li>
+<li>Bersifat demokratis.</li>
+<li>Mengakui HAM.</li>
+<li>Fleksibel dalam penerapan.</li>
+</ul>
+
+<div class="note">
+<strong>Contoh:</strong> Pancasila merupakan ideologi terbuka.
+</div>
+
+<h3>Ideologi Tertutup</h3>
+<p>
+Ideologi tertutup merupakan ideologi yang bersifat mutlak,
+kaku, dan cenderung dipaksakan oleh kelompok tertentu.
+</p>
+
+<ul>
+<li>Bersifat dogmatis.</li>
+<li>Tidak menerima kritik.</li>
+<li>Membatasi kebebasan.</li>
+<li>Cenderung otoriter.</li>
+<li>Sulit menerima perubahan.</li>
+</ul>
+
+<div class="table-wrap">
+<table>
+<tr>
+<th>Ideologi Terbuka</th>
+<th>Ideologi Tertutup</th>
+</tr>
+<tr>
+<td>Fleksibel</td>
+<td>Kaku</td>
+</tr>
+<tr>
+<td>Demokratis</td>
+<td>Cenderung otoriter</td>
+</tr>
+<tr>
+<td>Menghargai kritik</td>
+<td>Menolak kritik</td>
+</tr>
+<tr>
+<td>Bersumber dari masyarakat</td>
+<td>Cenderung dipaksakan</td>
+</tr>
+</table>
+</div>
+
+<h3>Unsur-Unsur Ideologi</h3>
+<ol>
+<li><strong>Keyakinan:</strong> kepercayaan terhadap nilai ideologi.</li>
+<li><strong>Mitos:</strong> gambaran cita-cita ideal yang memberikan motivasi.</li>
+<li><strong>Loyalitas:</strong> kesetiaan terhadap nilai ideologi.</li>
+</ol>
+
+<h3>Unsur Esensial Ideologi</h3>
+<ul>
+<li>Pandangan hidup.</li>
+<li>Nilai dasar.</li>
+<li>Cita-cita.</li>
+<li>Pedoman tindakan.</li>
+</ul>
+
+<h3>Fungsi Ideologi</h3>
+<ol>
+<li>Memberikan orientasi dan arah kehidupan.</li>
+<li>Menjadi identitas bangsa.</li>
+<li>Mempersatukan masyarakat.</li>
+<li>Menjadi pedoman bertindak.</li>
+<li>Memberikan motivasi.</li>
+<li>Membantu memahami persoalan.</li>
+<li>Memberikan legitimasi penyelenggaraan negara.</li>
+<li>Menjadi kontrol sosial.</li>
+</ol>
+</section>
+
+<!-- BAB 2 -->
+
+<section class="card materi" id="pancasila">
+<h2>🇮🇩 2. PANCASILA SEBAGAI IDEOLOGI NEGARA</h2>
+
+<h3>Lima Sila Pancasila</h3>
+
+<div class="grid">
+<div class="mini">
+<h3>⭐ Sila 1</h3>
+<strong>Ketuhanan Yang Maha Esa</strong>
+<p>Menghormati agama lain, tidak memaksakan keyakinan, dan menjaga kerukunan.</p>
+</div>
+
+<div class="mini">
+<h3>⛓ Sila 2</h3>
+<strong>Kemanusiaan yang Adil dan Beradab</strong>
+<p>Menolong sesama, menghargai HAM, dan tidak melakukan perundungan.</p>
+</div>
+
+<div class="mini">
+<h3>🌳 Sila 3</h3>
+<strong>Persatuan Indonesia</strong>
+<p>Menjaga persatuan, menghargai keberagaman, dan gotong royong.</p>
+</div>
+
+<div class="mini">
+<h3>🐂 Sila 4</h3>
+<strong>Kerakyatan yang Dipimpin oleh Hikmat Kebijaksanaan dalam Permusyawaratan/Perwakilan</strong>
+<p>Musyawarah, menghargai pendapat, dan menerima keputusan bersama.</p>
+</div>
+
+<div class="mini">
+<h3>🌾 Sila 5</h3>
+<strong>Keadilan Sosial bagi Seluruh Rakyat Indonesia</strong>
+<p>Bersikap adil, menghargai karya orang lain, dan menjaga keseimbangan hak serta kewajiban.</p>
+</div>
+</div>
+
+<h3>Keterkaitan Antarsila</h3>
+<p>
+Kelima sila Pancasila merupakan satu kesatuan yang utuh,
+saling menjiwai, dan tidak dapat dipisahkan.
+</p>
+
+<div class="table-wrap">
+<table>
+<tr>
+<th>Contoh Perilaku</th>
+<th>Sila yang Berkaitan</th>
+</tr>
+<tr>
+<td>Menghormati teman berbeda agama saat musyawarah.</td>
+<td>1, 2, 4</td>
+</tr>
+<tr>
+<td>Gotong royong membantu korban bencana tanpa membedakan suku.</td>
+<td>2, 3, 5</td>
+</tr>
+<tr>
+<td>Memilih ketua kelas secara demokratis.</td>
+<td>3, 4</td>
+</tr>
+<tr>
+<td>Membagi tugas kelompok secara adil melalui musyawarah.</td>
+<td>2, 4, 5</td>
+</tr>
+<tr>
+<td>Membantu korban bencana dengan menghormati agama, menjaga persatuan, bermusyawarah, dan membagikan bantuan secara adil.</td>
+<td>1, 2, 3, 4, 5</td>
+</tr>
+</table>
+</div>
+
+<h3>Tiga Dimensi Ideologi Pancasila</h3>
+
+<div class="grid">
+<div class="mini">
+<strong>1. Dimensi Realitas</strong>
+<p>Nilai Pancasila berasal dari kenyataan kehidupan masyarakat Indonesia.</p>
+</div>
+
+<div class="mini">
+<strong>2. Dimensi Idealisme</strong>
+<p>Pancasila mengandung cita-cita untuk mewujudkan masyarakat adil dan makmur.</p>
+</div>
+
+<div class="mini">
+<strong>3. Dimensi Fleksibilitas</strong>
+<p>Pancasila dapat berkembang mengikuti zaman tanpa mengubah nilai dasarnya.</p>
+</div>
+</div>
+
+<h3>Tiga Tingkatan Nilai Pancasila</h3>
+
+<div class="table-wrap">
+<table>
+<tr>
+<th>Nilai</th>
+<th>Pengertian</th>
+<th>Contoh</th>
+</tr>
+<tr>
+<td>Dasar</td>
+<td>Nilai fundamental Pancasila.</td>
+<td>Ketuhanan, kemanusiaan, persatuan, kerakyatan, keadilan.</td>
+</tr>
+<tr>
+<td>Instrumental</td>
+<td>Penjabaran nilai dasar dalam aturan.</td>
+<td>UUD 1945 dan undang-undang.</td>
+</tr>
+<tr>
+<td>Praksis</td>
+<td>Penerapan dalam kehidupan sehari-hari.</td>
+<td>Toleransi dan gotong royong.</td>
+</tr>
+</table>
+</div>
+
+<h3>Perwujudan Pancasila dalam Berbagai Bidang</h3>
+
+<div class="table-wrap">
+<table>
+<tr>
+<th>Bidang</th>
+<th>Contoh Penerapan</th>
+</tr>
+<tr>
+<td>Politik</td>
+<td>Pemilu jujur, musyawarah, demokrasi, menghargai hak politik.</td>
+</tr>
+<tr>
+<td>Hukum</td>
+<td>Persamaan di hadapan hukum, keadilan, dan perlindungan HAM.</td>
+</tr>
+<tr>
+<td>Ekonomi</td>
+<td>Koperasi, asas kekeluargaan, pemerataan kesejahteraan.</td>
+</tr>
+<tr>
+<td>Sosial Budaya</td>
+<td>Toleransi, gotong royong, dan melestarikan budaya.</td>
+</tr>
+<tr>
+<td>Pertahanan dan Keamanan</td>
+<td>Sishankamrata, bela negara, dan menjaga keamanan lingkungan.</td>
+</tr>
+</table>
+</div>
+
+<h3>Liberalisme dan Komunisme</h3>
+
+<div class="table-wrap">
+<table>
+<tr>
+<th>Aspek</th>
+<th>Liberalisme</th>
+<th>Komunisme</th>
+</tr>
+<tr>
+<td>Fokus</td>
+<td>Kebebasan individu.</td>
+<td>Persamaan sosial dan masyarakat tanpa kelas.</td>
+</tr>
+<tr>
+<td>Kepemilikan</td>
+<td>Mengakui hak milik pribadi.</td>
+<td>Kepemilikan sosial atas alat produksi dalam teori klasik.</td>
+</tr>
+<tr>
+<td>Ekonomi</td>
+<td>Mekanisme pasar.</td>
+<td>Perencanaan ekonomi terpusat dalam model klasik.</td>
+</tr>
+<tr>
+<td>Negara</td>
+<td>Kekuasaan negara dibatasi dalam banyak aliran.</td>
+<td>Negara berperan besar dalam model komunis terpusat.</td>
+</tr>
+</table>
+</div>
+</section>
+
+<!-- BAB 3 -->
+
+<section class="card materi" id="demokrasi">
+<h2>🏛️ 3. PERKEMBANGAN DEMOKRASI INDONESIA</h2>
+
+<h3>Pengertian Demokrasi</h3>
+<p>
+Demokrasi berasal dari bahasa Yunani, yaitu demos yang
+berarti rakyat dan kratos yang berarti kekuasaan.
+Demokrasi merupakan sistem pemerintahan yang menempatkan
+rakyat sebagai pemegang kedaulatan tertinggi.
+</p>
+
+<h3>1. Demokrasi Awal Kemerdekaan (1945–1949)</h3>
+<ul>
+<li>Menggunakan UUD 1945.</li>
+<li>Presiden memiliki kekuasaan besar.</li>
+<li>KNIP mendapatkan fungsi legislatif melalui Maklumat 16 Oktober 1945.</li>
+<li>Maklumat 3 November 1945 mendorong pembentukan partai politik.</li>
+<li>Maklumat 14 November 1945 memulai praktik kabinet parlementer.</li>
+</ul>
+
+<h3>2. Demokrasi Parlementer (1950–1959)</h3>
+<ul>
+<li>Menggunakan UUDS 1950.</li>
+<li>Presiden sebagai kepala negara.</li>
+<li>Perdana menteri sebagai kepala pemerintahan.</li>
+<li>Kabinet bertanggung jawab kepada parlemen.</li>
+<li>Banyak partai politik.</li>
+<li>Kabinet sering mengalami pergantian.</li>
+<li>Pemilu pertama berlangsung pada tahun 1955.</li>
+</ul>
+
+<h3>Kabinet Demokrasi Parlementer</h3>
+<div class="table-wrap">
+<table>
+<tr><th>No.</th><th>Kabinet</th></tr>
+<tr><td>1</td><td>Natsir</td></tr>
+<tr><td>2</td><td>Sukiman-Suwirjo</td></tr>
+<tr><td>3</td><td>Wilopo</td></tr>
+<tr><td>4</td><td>Ali Sastroamidjojo I</td></tr>
+<tr><td>5</td><td>Burhanuddin Harahap</td></tr>
+<tr><td>6</td><td>Ali Sastroamidjojo II</td></tr>
+<tr><td>7</td><td>Djuanda</td></tr>
+</table>
+</div>
+
+<h3>3. Demokrasi Terpimpin (1959–1966)</h3>
+<ul>
+<li>Dimulai setelah Dekrit Presiden 5 Juli 1959.</li>
+<li>Kekuasaan presiden semakin dominan.</li>
+<li>Peran partai politik dibatasi.</li>
+<li>DPR hasil Pemilu 1955 dibubarkan pada 1960.</li>
+<li>Dibentuk DPR-GR, MPRS, dan DPAS.</li>
+<li>Presiden diangkat sebagai presiden seumur hidup melalui Ketetapan MPRS No. III/MPRS/1963.</li>
+</ul>
+
+<h3>4. Demokrasi Pancasila Orde Baru (1966–1998)</h3>
+<ul>
+<li>Dipimpin Presiden Soeharto.</li>
+<li>Mengutamakan stabilitas politik dan pembangunan ekonomi.</li>
+<li>Pemilu dilaksanakan secara berkala.</li>
+<li>Penyederhanaan partai politik pada 1973.</li>
+<li>Kekuasaan presiden sangat dominan.</li>
+<li>Kebebasan pers dan kritik politik dibatasi.</li>
+<li>Terjadi praktik KKN.</li>
+<li>Terdapat Dwifungsi ABRI.</li>
+</ul>
+
+<h3>5. Demokrasi Reformasi (1998–Sekarang)</h3>
+<ul>
+<li>Dimulai setelah Soeharto mengundurkan diri pada 21 Mei 1998.</li>
+<li>Kebebasan berpendapat semakin terbuka.</li>
+<li>Pemilu lebih kompetitif.</li>
+<li>Presiden dipilih langsung mulai 2004.</li>
+<li>Penguatan perlindungan HAM.</li>
+<li>Otonomi daerah.</li>
+<li>Pembatasan masa jabatan presiden maksimal dua periode.</li>
+</ul>
+
+<div class="note">
+<strong>Kunci hafalan:</strong><br>
+Parlementer = kabinet sering berganti.<br>
+Terpimpin = presiden dominan.<br>
+Orde Baru = stabilitas dan pembangunan.<br>
+Reformasi = kebebasan dan demokrasi terbuka.
+</div>
+</section>
+
+<!-- BAB 4 -->
+
+<section class="card materi" id="dekrit">
+<h2>📜 4. DEKRIT PRESIDEN 5 JULI 1959</h2>
+
+<h3>Latar Belakang</h3>
+<ul>
+<li>Konstituante gagal menyusun UUD baru.</li>
+<li>Terjadi perbedaan pendapat mengenai dasar negara.</li>
+<li>Sidang Konstituante mengalami kebuntuan.</li>
+<li>Situasi politik dan keamanan tidak stabil.</li>
+</ul>
+
+<h3>Isi Dekrit Presiden</h3>
+<ol>
+<li>Pembubaran Konstituante.</li>
+<li>Berlakunya kembali UUD 1945 dan tidak berlakunya UUDS 1950.</li>
+<li>Pembentukan MPRS dan DPAS dalam waktu sesingkat-singkatnya.</li>
+</ol>
+
+<h3>Tujuan</h3>
+<ul>
+<li>Mengakhiri kebuntuan Konstituante.</li>
+<li>Memulihkan stabilitas ketatanegaraan.</li>
+<li>Mengembalikan penggunaan UUD 1945.</li>
+</ul>
+
+<h3>Dampak</h3>
+<p><strong>Positif:</strong></p>
+<ul>
+<li>Mengakhiri kebuntuan Konstituante.</li>
+<li>UUD 1945 berlaku kembali.</li>
+</ul>
+
+<p><strong>Negatif:</strong></p>
+<ul>
+<li>Kekuasaan presiden semakin dominan.</li>
+<li>Pengawasan terhadap pemerintah melemah.</li>
+<li>Dimulainya Demokrasi Terpimpin.</li>
+</ul>
+
+<div class="note">
+<strong>Hafalan:</strong> 5 Juli 1959 = Bubarkan Konstituante, kembali ke UUD 1945, bentuk MPRS dan DPAS.
+</div>
+</section>
+
+<!-- BAB 5 -->
+
+<section class="card materi" id="amandemen">
+<h2>⚖️ 5. AMANDEMEN UUD NRI 1945</h2>
+
+<h3>Pengertian</h3>
+<p>
+Amandemen merupakan perubahan atau penyempurnaan
+terhadap konstitusi tanpa mengganti seluruh konstitusi.
+</p>
+
+<h3>Tujuan Amandemen</h3>
+<ul>
+<li>Membatasi kekuasaan presiden.</li>
+<li>Memperkuat demokrasi.</li>
+<li>Menjamin HAM.</li>
+<li>Memperjelas pembagian kekuasaan.</li>
+<li>Memperkuat lembaga negara.</li>
+</ul>
+
+<h3>Empat Tahap Amandemen</h3>
+
+<div class="timeline">
+
+<div>
+<strong>Amandemen I — 19 Oktober 1999</strong>
+<ul>
+<li>Membatasi masa jabatan presiden maksimal dua periode.</li>
+<li>Memperkuat kedudukan DPR.</li>
+<li>Mengubah beberapa ketentuan kewenangan presiden.</li>
+</ul>
+</div>
+
+<div>
+<strong>Amandemen II — 18 Agustus 2000</strong>
+<ul>
+<li>Mengatur otonomi daerah.</li>
+<li>Memperluas pengaturan HAM.</li>
+<li>Mengatur wilayah negara.</li>
+<li>Mengatur pertahanan dan keamanan.</li>
+<li>Mengatur identitas nasional.</li>
+</ul>
+</div>
+
+<div>
+<strong>Amandemen III — 9 November 2001</strong>
+<ul>
+<li>Presiden dipilih langsung rakyat.</li>
+<li>Pembentukan DPD.</li>
+<li>Pembentukan Mahkamah Konstitusi.</li>
+<li>Pengaturan Komisi Yudisial.</li>
+<li>Pengaturan pemilu.</li>
+</ul>
+</div>
+
+<div>
+<strong>Amandemen IV — 10 Agustus 2002</strong>
+<ul>
+<li>Penyempurnaan susunan MPR.</li>
+<li>Pengaturan pendidikan nasional.</li>
+<li>Pengaturan perekonomian dan kesejahteraan sosial.</li>
+<li>Pengaturan keuangan negara.</li>
+<li>Penghapusan Dewan Pertimbangan Agung.</li>
+</ul>
+</div>
+
+</div>
+
+<h3>Perbedaan Sebelum dan Sesudah Amandemen</h3>
+
+<div class="table-wrap">
+<table>
+<tr>
+<th>Sebelum</th>
+<th>Sesudah</th>
+</tr>
+<tr>
+<td>Presiden dipilih MPR.</td>
+<td>Presiden dipilih langsung rakyat.</td>
+</tr>
+<tr>
+<td>Masa jabatan belum dibatasi maksimal dua periode secara tegas.</td>
+<td>Maksimal dua periode.</td>
+</tr>
+<tr>
+<td>MPR merupakan lembaga tertinggi negara.</td>
+<td>Kedudukan lembaga negara berdasarkan konstitusi.</td>
+</tr>
+<tr>
+<td>Belum ada DPD.</td>
+<td>Terbentuk DPD.</td>
+</tr>
+<tr>
+<td>Belum ada MK.</td>
+<td>Terbentuk MK.</td>
+</tr>
+<tr>
+<td>Pengaturan HAM terbatas.</td>
+<td>HAM diatur lebih lengkap.</td>
+</tr>
+</table>
+</div>
+
+<h3>Kesepakatan Dasar Amandemen</h3>
+<ol>
+<li>Tidak mengubah Pembukaan UUD 1945.</li>
+<li>Mempertahankan NKRI.</li>
+<li>Mempertahankan sistem presidensial.</li>
+<li>Penjelasan ditiadakan dan ketentuan normatif dimasukkan ke pasal-pasal.</li>
+<li>Perubahan dilakukan dengan cara adendum.</li>
+</ol>
+</section>
+
+<!-- BAB 6 -->
+
+<section class="card materi" id="perbandingan">
+<h2>🔎 6. KELEBIHAN DAN KEKURANGAN DEMOKRASI</h2>
+
+<div class="table-wrap">
+<table>
+<tr>
+<th>Jenis Demokrasi</th>
+<th>Kelebihan</th>
+<th>Kekurangan</th>
+</tr>
+
+<tr>
+<td>Parlementer</td>
+<td>
+<ul>
+<li>Kebebasan berpendapat luas.</li>
+<li>Partai politik berkembang.</li>
+<li>Parlemen aktif.</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>Kabinet sering berganti.</li>
+<li>Konflik antarpartai.</li>
+<li>Pemerintahan kurang stabil.</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td>Terpimpin</td>
+<td>
+<ul>
+<li>Keputusan lebih terpusat.</li>
+<li>Menekankan persatuan.</li>
+<li>Berusaha mengatasi ketidakstabilan kabinet.</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>Presiden terlalu dominan.</li>
+<li>Kebebasan politik terbatas.</li>
+<li>Pengawasan melemah.</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td>Orde Baru</td>
+<td>
+<ul>
+<li>Stabilitas pemerintahan.</li>
+<li>Pembangunan infrastruktur.</li>
+<li>Program pembangunan berkembang.</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>KKN.</li>
+<li>Kebebasan dibatasi.</li>
+<li>Kekuasaan presiden dominan.</li>
+</ul>
+</td>
+</tr>
+
+<tr>
+<td>Reformasi</td>
+<td>
+<ul>
+<li>Kebebasan berpendapat.</li>
+<li>Pemilu lebih demokratis.</li>
+<li>Presiden dipilih langsung.</li>
+<li>Perlindungan HAM meningkat.</li>
+</ul>
+</td>
+<td>
+<ul>
+<li>Politik uang.</li>
+<li>Biaya politik tinggi.</li>
+<li>Polarisasi politik.</li>
+<li>Hoaks dan korupsi.</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+</section>
+
+<!-- BAB 7 -->
+
+<section class="card materi" id="kmb">
+<h2>🤝 7. KONFERENSI MEJA BUNDAR 1949</h2>
+
+<h3>Pengertian</h3>
+<p>
+Konferensi Meja Bundar adalah perundingan antara Indonesia
+dan Belanda yang berlangsung di Den Haag, Belanda,
+pada 23 Agustus sampai 2 November 1949.
+</p>
+
+<h3>Latar Belakang</h3>
+<ul>
+<li>Indonesia telah memproklamasikan kemerdekaan.</li>
+<li>Belanda masih ingin mempertahankan kekuasaan.</li>
+<li>Terjadi konflik bersenjata dan diplomasi.</li>
+<li>Adanya tekanan internasional untuk menyelesaikan konflik.</li>
+</ul>
+
+<h3>Tokoh-Tokoh KMB</h3>
+<div class="table-wrap">
+<table>
+<tr><th>Tokoh</th><th>Peran</th></tr>
+<tr><td>Mohammad Hatta</td><td>Ketua delegasi Republik Indonesia.</td></tr>
+<tr><td>Sultan Hamid II</td><td>Ketua delegasi BFO.</td></tr>
+<tr><td>Johannes van Maarseveen</td><td>Ketua delegasi Belanda.</td></tr>
+<tr><td>Thomas K. Critchley</td><td>Perwakilan UNCI.</td></tr>
+</table>
+</div>
+
+<h3>Hasil KMB</h3>
+<ol>
+<li>Belanda menyerahkan kedaulatan kepada RIS.</li>
+<li>Penyerahan kedaulatan pada 27 Desember 1949.</li>
+<li>Terbentuk Uni Indonesia-Belanda.</li>
+<li>Masalah Irian Barat ditunda penyelesaiannya.</li>
+<li>Disepakati pengaturan mengenai utang Hindia Belanda.</li>
+</ol>
+
+<h3>Perubahan Bentuk Negara</h3>
+<div class="timeline">
+<div><strong>17 Agustus 1945</strong><br>Proklamasi Kemerdekaan Indonesia.</div>
+<div><strong>27 Desember 1949</strong><br>Penyerahan kedaulatan kepada RIS.</div>
+<div><strong>17 Agustus 1950</strong><br>Kembali menjadi NKRI.</div>
+</div>
+
+<div class="note">
+<strong>Hafalan:</strong> KMB berlangsung di Den Haag pada 1949. Penyerahan kedaulatan dilaksanakan 27 Desember 1949.
+</div>
+</section>
+
+<!-- BAB 8 -->
+
+<section class="card materi" id="perilaku">
+<h2>🌱 8. SIKAP PERILAKU SESUAI NILAI DEMOKRASI</h2>
+
+<h3>Prinsip Demokrasi</h3>
+<ol>
+<li>Kedaulatan berada di tangan rakyat.</li>
+<li>Persamaan kedudukan di hadapan hukum.</li>
+<li>Perlindungan HAM.</li>
+<li>Kebebasan yang bertanggung jawab.</li>
+<li>Pemilu jujur dan adil.</li>
+<li>Pembagian kekuasaan.</li>
+<li>Supremasi hukum.</li>
+<li>Menghargai perbedaan pendapat.</li>
+<li>Pemerintahan bertanggung jawab.</li>
+<li>Partisipasi masyarakat.</li>
+</ol>
+
+<h3>Contoh Perilaku Demokratis</h3>
+
+<div class="grid">
+<div class="mini">
+<h3>🏠 Keluarga</h3>
+<ul>
+<li>Musyawarah keluarga.</li>
+<li>Menghargai pendapat.</li>
+<li>Tidak memaksakan kehendak.</li>
+</ul>
+</div>
+
+<div class="mini">
+<h3>🏫 Sekolah</h3>
+<ul>
+<li>Memilih ketua kelas secara demokratis.</li>
+<li>Menerima hasil pemilihan.</li>
+<li>Menghargai pendapat teman.</li>
+</ul>
+</div>
+
+<div class="mini">
+<h3>🏘️ Masyarakat</h3>
+<ul>
+<li>Mengikuti musyawarah warga.</li>
+<li>Menghargai perbedaan.</li>
+<li>Mengutamakan kepentingan bersama.</li>
+</ul>
+</div>
+
+<div class="mini">
+<h3>🇮🇩 Negara</h3>
+<ul>
+<li>Menggunakan hak pilih.</li>
+<li>Menaati hukum.</li>
+<li>Menolak politik uang.</li>
+<li>Menyampaikan kritik secara santun.</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- HAFALAN -->
+
+<section class="card materi">
+<h2>⚡ 9. RANGKUMAN HAFALAN KILAT</h2>
+
+<div class="table-wrap">
+<table>
+<tr><th>Materi</th><th>Kata Kunci</th></tr>
+<tr><td>Ideologi</td><td>Gagasan, nilai, cita-cita, pedoman.</td></tr>
+<tr><td>Ideologi terbuka</td><td>Fleksibel dan demokratis.</td></tr>
+<tr><td>Ideologi tertutup</td><td>Kaku dan dipaksakan.</td></tr>
+<tr><td>Unsur ideologi</td><td>Keyakinan, mitos, loyalitas.</td></tr>
+<tr><td>Dimensi Pancasila</td><td>Realitas, idealisme, fleksibilitas.</td></tr>
+<tr><td>Nilai Pancasila</td><td>Dasar, instrumental, praksis.</td></tr>
+<tr><td>Liberalisme</td><td>Kebebasan individu.</td></tr>
+<tr><td>Komunisme</td><td>Masyarakat tanpa kelas.</td></tr>
+<tr><td>Parlementer</td><td>Kabinet bertanggung jawab kepada parlemen.</td></tr>
+<tr><td>Terpimpin</td><td>Presiden dominan.</td></tr>
+<tr><td>Orde Baru</td><td>Stabilitas dan pembangunan.</td></tr>
+<tr><td>Reformasi</td><td>Kebebasan dan pemilu langsung.</td></tr>
+<tr><td>Dekrit</td><td>5 Juli 1959.</td></tr>
+<tr><td>Amandemen</td><td>1999, 2000, 2001, 2002.</td></tr>
+<tr><td>KMB</td><td>23 Agustus–2 November 1949.</td></tr>
+</table>
+</div>
+</section>
+
+<!-- KUIS -->
+
+<section class="quiz" id="latihan">
+<h2>✍️ 10. LATIHAN SOAL PPKn KELAS XI</h2>
+<p>
+Kerjakan 20 soal berikut untuk menguji pemahamanmu.
+Pilih satu jawaban yang paling tepat.
+</p>
+
+<div id="questions"></div>
+
+<button class="btn btn-primary" onclick="periksa()">
+📊 Periksa Jawaban
+</button>
+
+<button class="btn btn-secondary" onclick="ulang()">
+🔄 Ulangi
+</button>
+
+<div class="result" id="hasil"></div>
+</section>
+
+</main>
+</div>
+
+<footer>
+<h3>🇮🇩 RUANG BELAJAR PPKn KELAS XI</h3>
+<p>Belajar Pancasila • Memahami Demokrasi • Membangun Indonesia</p>
+<small>Media pembelajaran untuk persiapan ujian semester.</small>
+</footer>
+
+<script>
+
+const soal = [
+
+{
+q:"Apa pengertian ideologi?",
+o:[
+"Kumpulan gagasan, nilai, dan cita-cita sebagai pedoman",
+"Sistem perdagangan",
+"Aturan lalu lintas",
+"Daftar nama pemimpin"
+],
+a:0,
+e:"Ideologi merupakan kumpulan gagasan, nilai, keyakinan, dan cita-cita."
+},
+
+{
+q:"Mengapa Pancasila disebut ideologi terbuka?",
+o:[
+"Nilai dasarnya dapat diganti",
+"Penerapannya dapat berkembang tanpa mengubah nilai dasar",
+"Hanya berlaku untuk pemerintah",
+"Tidak memiliki aturan"
+],
+a:1,
+e:"Pancasila bersifat dinamis dalam penerapannya, tetapi nilai dasarnya tetap."
+},
+
+{
+q:"Tiga unsur ideologi adalah...",
+o:[
+"Politik, hukum, ekonomi",
+"Keyakinan, mitos, loyalitas",
+"Rakyat, wilayah, pemerintah",
+"Tujuan, sanksi, hukum"
+],
+a:1,
+e:"Tiga unsur ideologi yaitu keyakinan, mitos, dan loyalitas."
+},
+
+{
+q:"Dimensi realitas menunjukkan bahwa...",
+o:[
+"Nilai berasal dari kehidupan masyarakat",
+"Nilai tidak dapat diterapkan",
+"Ideologi harus diganti",
+"Negara tidak membutuhkan ideologi"
+],
+a:0,
+e:"Dimensi realitas berarti nilai ideologi berakar pada kenyataan masyarakat."
+},
+
+{
+q:"Peraturan perundang-undangan merupakan nilai...",
+o:[
+"Dasar",
+"Instrumental",
+"Praksis",
+"Individual"
+],
+a:1,
+e:"Nilai instrumental merupakan penjabaran nilai dasar dalam aturan."
+},
+
+{
+q:"Gotong royong membantu korban bencana tanpa membedakan suku mencerminkan sila...",
+o:[
+"1 saja",
+"2, 3, dan 5",
+"4 saja",
+"5 saja"
+],
+a:1,
+e:"Perbuatan tersebut mencerminkan kemanusiaan, persatuan, dan keadilan."
+},
+
+{
+q:"Ideologi yang mengutamakan kebebasan individu adalah...",
+o:[
+"Komunisme",
+"Liberalisme",
+"Feodalisme",
+"Totalitarianisme"
+],
+a:1,
+e:"Liberalisme menekankan kebebasan individu."
+},
+
+{
+q:"Kabinet bertanggung jawab kepada parlemen merupakan ciri demokrasi...",
+o:[
+"Terpimpin",
+"Parlementer",
+"Reformasi",
+"Orde Baru"
+],
+a:1,
+e:"Dalam demokrasi parlementer, kabinet bertanggung jawab kepada parlemen."
+},
+
+{
+q:"Pemilu pertama Indonesia dilaksanakan tahun...",
+o:[
+"1945",
+"1949",
+"1955",
+"1959"
+],
+a:2,
+e:"Pemilu pertama dilaksanakan pada tahun 1955."
+},
+
+{
+q:"Dekrit Presiden dikeluarkan pada...",
+o:[
+"17 Agustus 1945",
+"27 Desember 1949",
+"5 Juli 1959",
+"21 Mei 1998"
+],
+a:2,
+e:"Dekrit Presiden dikeluarkan pada 5 Juli 1959."
+},
+
+{
+q:"Salah satu isi Dekrit Presiden adalah...",
+o:[
+"Membubarkan Konstituante",
+"Membentuk DPD",
+"Menghapus UUD 1945",
+"Menghapus Pancasila"
+],
+a:0,
+e:"Dekrit membubarkan Konstituante dan memberlakukan kembali UUD 1945."
+},
+
+{
+q:"UUD 1945 mengalami empat kali amandemen pada tahun...",
+o:[
+"1945–1949",
+"1950–1959",
+"1966–1998",
+"1999–2002"
+],
+a:3,
+e:"Empat amandemen berlangsung pada 1999, 2000, 2001, dan 2002."
+},
+
+{
+q:"Lembaga yang dibentuk setelah perubahan UUD 1945 adalah...",
+o:[
+"VOC",
+"DPD dan MK",
+"KNIL",
+"Konstituante"
+],
+a:1,
+e:"DPD dan Mahkamah Konstitusi merupakan hasil penting penataan ketatanegaraan."
+},
+
+{
+q:"Amandemen kedua antara lain mengatur...",
+o:[
+"HAM dan pemerintahan daerah",
+"Penghapusan pemilu",
+"Pembubaran negara",
+"Kembalinya kolonialisme"
+],
+a:0,
+e:"Amandemen kedua memperluas pengaturan HAM dan pemerintahan daerah."
+},
+
+{
+q:"Ciri utama Demokrasi Terpimpin adalah...",
+o:[
+"Kabinet bertanggung jawab kepada parlemen",
+"Kekuasaan presiden dominan",
+"Presiden dipilih langsung sejak 1959",
+"Tidak ada pemerintahan"
+],
+a:1,
+e:"Kekuasaan presiden sangat dominan pada masa Demokrasi Terpimpin."
+},
+
+{
+q:"Salah satu ciri Orde Baru adalah...",
+o:[
+"Tidak ada pemilu",
+"Stabilitas dan pembangunan menjadi penekanan",
+"Presiden dipilih langsung sejak 1967",
+"Tidak ada partai politik"
+],
+a:1,
+e:"Orde Baru menekankan stabilitas dan pembangunan."
+},
+
+{
+q:"Salah satu ciri Reformasi adalah...",
+o:[
+"Kebebasan pers semakin terbuka",
+"Pemilu dihapuskan",
+"Konstituante dibentuk kembali",
+"Kebebasan dibatasi sepenuhnya"
+],
+a:0,
+e:"Reformasi memperluas kebebasan pers dan politik."
+},
+
+{
+q:"Konferensi Meja Bundar berlangsung di...",
+o:[
+"Jakarta",
+"Bandung",
+"Den Haag",
+"Surabaya"
+],
+a:2,
+e:"KMB berlangsung di Den Haag, Belanda."
+},
+
+{
+q:"Penyerahan kedaulatan hasil KMB dilaksanakan pada...",
+o:[
+"17 Agustus 1945",
+"27 Desember 1949",
+"5 Juli 1959",
+"10 Agustus 2002"
+],
+a:1,
+e:"Penyerahan kedaulatan berlangsung pada 27 Desember 1949."
+},
+
+{
+q:"Contoh perilaku demokratis di sekolah adalah...",
+o:[
+"Memaksakan pilihan",
+"Menolak pendapat teman",
+"Memilih ketua kelas secara jujur",
+"Melarang musyawarah"
+],
+a:2,
+e:"Pemilihan ketua kelas yang jujur mencerminkan nilai demokrasi."
+}
+
+];
+
+function tampilkanSoal(){
+
+const area=document.getElementById("questions");
+
+area.innerHTML=soal.map((s,i)=>`
+
+<div class="question">
+
+<h3>${i+1}. ${s.q}</h3>
+
+${s.o.map((pilihan,j)=>`
+
+<label>
+<input type="radio" name="soal${i}" value="${j}">
+${String.fromCharCode(65+j)}. ${pilihan}
+</label>
+
+`).join("")}
+
+<div id="feedback${i}"></div>
+
+</div>
+
+`).join("");
+
+}
+
+function periksa(){
+
+let benar=0;
+let terjawab=0;
+
+soal.forEach((s,i)=>{
+
+const pilihan=document.querySelector(
+'input[name="soal'+i+'"]:checked'
+);
+
+const feedback=document.getElementById("feedback"+i);
+
+if(pilihan){
+
+terjawab++;
+
+if(Number(pilihan.value)===s.a){
+
+benar++;
+
+feedback.innerHTML=
+"<p style='color:green'><b>✓ Benar!</b> "+s.e+"</p>";
+
+}else{
+
+feedback.innerHTML=
+"<p style='color:#c0392b'><b>✗ Salah.</b> Jawaban benar: "+
+String.fromCharCode(65+s.a)+". "+s.o[s.a]+
+"<br>"+s.e+"</p>";
+
+}
+
+}else{
+
+feedback.innerHTML=
+"<p style='color:#c0392b'>Belum dijawab. "+s.e+"</p>";
+
+}
+
+});
+
+const nilai=benar*5;
+
+const hasil=document.getElementById("hasil");
+
+hasil.style.display="block";
+
+hasil.innerHTML=`
+
+<h2>🏆 Hasil Latihan</h2>
+
+<h1>${nilai}/100</h1>
+
+<p>Jawaban benar: ${benar} dari 20 soal.</p>
+
+<p>Soal terjawab: ${terjawab} dari 20 soal.</p>
+
+<p>
+${nilai>=90?"Luar biasa! Pemahamanmu sangat baik.":
+nilai>=75?"Bagus! Terus tingkatkan belajarmu.":
+nilai>=60?"Cukup baik. Pelajari kembali materi.":
+"Jangan menyerah! Baca ulang materi dan coba kembali."}
+</p>
+
+`;
+
+hasil.scrollIntoView({behavior:"smooth"});
+
+}
+
+function ulang(){
+
+tampilkanSoal();
+
+document.getElementById("hasil").style.display="none";
+
+}
+
+function cariMateri(){
+
+const kata=document.getElementById("search").value.toLowerCase();
+
+document.querySelectorAll(".materi").forEach(bab=>{
+
+bab.style.display=
+bab.innerText.toLowerCase().includes(kata)?"block":"none";
+
+});
+
+}
+
+tampilkanSoal();
+
+</script>
+
+</body>
+</html>
